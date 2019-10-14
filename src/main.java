@@ -2,7 +2,9 @@
 public class main {
 	public static void main(String args[]) {
 		
-		InputCalculator num=new InputCalculator();
-		num.inputThenPrintSumAndAverage();
+		Wall item=new Wall();
+		item.setWidth(1.125);
+		double number=item.getWidth();
+		System.out.println(number);
 	}
 }
