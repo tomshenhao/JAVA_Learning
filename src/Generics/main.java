@@ -17,5 +17,15 @@ public class main {
 		
 		Team<SoccerPlayer> soccerTeam = new Team<>("Chelsea Club");
 		soccerTeam.addPlayer(beckham);
+		
+		Team<FootballPlayer> hawthorn = new Team<>("Hawthorn");
+		Team<FootballPlayer> fremantle = new Team<>("Fremantle");
+		
+		hawthorn.matchResult(fremantle, 1, 0);
+		hawthorn.matchResult(adelaideCrows, 3, 8);
+		
+		adelaideCrows.matchResult(fremantle, 2, 1);
+		
+		System.out.println();
 	}
 }
