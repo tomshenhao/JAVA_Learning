@@ -4,10 +4,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Countdown countdown = new Countdown();
-		CountdownThread t1 = new CountdownThread(countdown);
+		Countdown countdown1 = new Countdown();
+		Countdown countdown2 = new Countdown();		
+		
+		CountdownThread t1 = new CountdownThread(countdown1);
 		t1.setName("Thread 1");
-		CountdownThread t2 = new CountdownThread(countdown);
+		CountdownThread t2 = new CountdownThread(countdown2);
 		t2.setName("Thread 2");
 		
 		t1.start();
@@ -23,7 +25,7 @@ class Countdown{
 	
 	public void doCountdown() {
 		String color;
-		
+	
 		switch(Thread.currentThread().getName()) {
 			case "Thread 1":
 				color = ThreadColor.ANSI_CYAN;
