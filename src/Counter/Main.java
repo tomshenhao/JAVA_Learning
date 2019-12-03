@@ -4,12 +4,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Countdown countdown1 = new Countdown();
-		Countdown countdown2 = new Countdown();		
+		Countdown countdown = new Countdown();
 		
-		CountdownThread t1 = new CountdownThread(countdown1);
+		CountdownThread t1 = new CountdownThread(countdown);
 		t1.setName("Thread 1");
-		CountdownThread t2 = new CountdownThread(countdown2);
+		CountdownThread t2 = new CountdownThread(countdown);
 		t2.setName("Thread 2");
 		
 		t1.start();
@@ -25,7 +24,7 @@ class Countdown{
 	
 	public void doCountdown() {
 		String color;
-	
+		
 		switch(Thread.currentThread().getName()) {
 			case "Thread 1":
 				color = ThreadColor.ANSI_CYAN;
@@ -37,9 +36,11 @@ class Countdown{
 				color = ThreadColor.ANSI_GREEN;
 		}
 		
-		for(i=10; i>0; i--) {
-			System.out.println(color + Thread.currentThread().getName() +": i="+i);
-		}
+		synchronized(this){
+			for(i=10; i>0; i--) {
+				System.out.println(color + Thread.currentThread().getName() +": i="+i);
+			}
+		}		
 	}
 }
 
